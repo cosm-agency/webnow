@@ -1,3 +1,5 @@
+<?php /* Template Name: 1 Column */ ?>
+
 <?php get_header(); ?>
 
 <div class="container mx-auto">

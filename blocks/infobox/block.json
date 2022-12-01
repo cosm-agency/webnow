@@ -1,0 +1,14 @@
+{
+    "name": "acf/infobox",
+    "title": "infobox",
+    "description": "A custom infobox block.",
+    "style": [ "file:./infobox.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["infobox", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "infobox.php"
+    },
+    "align": "full"
+}

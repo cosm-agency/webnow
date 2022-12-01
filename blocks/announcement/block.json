@@ -1,0 +1,14 @@
+{
+    "name": "acf/announcement",
+    "title": "announcement",
+    "description": "A custom announcement block.",
+    "style": [ "file:./announcement.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["announcement", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "announcement.php"
+    },
+    "align": "full"
+}

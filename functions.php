@@ -9,6 +9,7 @@ function tailpress_setup() {
 	register_nav_menus(
 		array(
 			'primary' => __( 'Primary Menu', 'tailpress' ),
+			'footer' => __( 'Footer Menu', 'tailpress' ),
 		)
 	);
 
@@ -115,3 +116,45 @@ add_filter( 'wp_get_attachment_image_attributes', function( $attr )
 
     return $attr;
 } );
+
+
+function footer_nav_menu_no_ul()
+{
+    $options = array(
+        'echo' => false,
+        'container' => false,
+        'theme_location' => 'footer',
+        'fallback_cb'=> 'default_page_menu'
+    );
+
+    $menu = wp_nav_menu($options);
+    echo preg_replace(array(
+        '#^<ul[^>]*>#',
+        '#</ul>$#'
+    ), '', $menu);
+
+}
+
+function default_page_menu() {
+   wp_list_pages('title_li=');
+} 
+
+
+if( function_exists('acf_add_options_page') ) {
+    
+    acf_add_options_page();
+    
+}
+
+add_action( 'init', 'register_acf_blocks' );
+function register_acf_blocks() {
+    register_block_type( __DIR__ . '/blocks/announcement' );
+	register_block_type( __DIR__ . '/blocks/cta' );
+	register_block_type( __DIR__ . '/blocks/feature-list' );
+	register_block_type( __DIR__ . '/blocks/hero' );
+	register_block_type( __DIR__ . '/blocks/infobox' );
+	register_block_type( __DIR__ . '/blocks/reviews' );
+	register_block_type( __DIR__ . '/blocks/service-grid' );
+	register_block_type( __DIR__ . '/blocks/testimonial' );
+	register_block_type( __DIR__ . '/blocks/custom-container' );
+}

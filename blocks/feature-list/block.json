@@ -1,0 +1,14 @@
+{
+    "name": "acf/feature-list",
+    "title": "feature-list",
+    "description": "A custom feature-list block.",
+    "style": [ "file:./feature-list.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["feature-list", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "feature-list.php"
+    },
+    "align": "full"
+}

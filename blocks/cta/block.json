@@ -1,0 +1,14 @@
+{
+    "name": "acf/cta",
+    "title": "cta",
+    "description": "A custom cta block.",
+    "style": [ "file:./cta.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["cta", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "cta.php"
+    },
+    "align": "full"
+}

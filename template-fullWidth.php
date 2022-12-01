@@ -1,6 +1,8 @@
+<?php /* Template Name: Full Page Width */ ?>
+
 <?php get_header(); ?>
 
-<div class="container mx-auto">
+<div class="w-full"> 
 
 	<?php if ( have_posts() ) : ?>
 		<?php

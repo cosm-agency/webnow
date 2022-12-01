@@ -9,6 +9,7 @@ module.exports = {
         './**/*.php',
         './resources/css/*.css',
         './resources/js/*.js',
+        './blocks/feature-list/feature-list.php',
         './safelist.txt'
     ],
     theme: {

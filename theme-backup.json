@@ -26,6 +26,21 @@
           "name": "Dark Green",
           "slug": "darkGreen",
           "color": "#6db954"
+        },
+        {
+          "name": "Signature Primary",
+          "slug": "signaturePrimary",
+          "color": "#1e73be"
+        },
+        {
+          "name": "Signature Dark Primary",
+          "slug": "signatureDarkPrimary",
+          "color": "#1a57a3"
+        },
+        {
+          "name": "SB Organics Primary",
+          "slug": "sborganicsPrimary",
+          "color": "#008569"
         }
       ]
     },

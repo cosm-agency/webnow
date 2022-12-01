@@ -1,0 +1,14 @@
+{
+    "name": "acf/service-grid",
+    "title": "service-grid",
+    "description": "A custom service-grid block.",
+    "style": [ "file:./service-grid.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["service-grid", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "service-grid.php"
+    },
+    "align": "full"
+}

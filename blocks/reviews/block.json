@@ -1,0 +1,14 @@
+{
+    "name": "acf/reviews",
+    "title": "reviews",
+    "description": "A custom reviews block.",
+    "style": [ "file:./reviews.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["reviews", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "reviews.php"
+    },
+    "align": "full"
+}

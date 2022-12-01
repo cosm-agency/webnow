@@ -1,0 +1,14 @@
+{
+    "name": "acf/custom-container",
+    "title": "custom-container",
+    "description": "A custom custom-container block.",
+    "style": [ "file:./custom-container.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["custom-container", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "custom-container.php"
+    },
+    "align": "full"
+}
