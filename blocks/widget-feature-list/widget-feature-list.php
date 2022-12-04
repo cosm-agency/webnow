@@ -1,6 +1,6 @@
 <?php
 /**
- * feature-list Block Template.
+ * widget-feature-list Block Template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -18,7 +18,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'feature-list-block';
+$class_name = 'widget-feature-list-block';
 if ( ! empty( $block['className'] ) ) {
     $class_name .= ' ' . $block['className'];
 }
@@ -29,17 +29,17 @@ if ( ! empty( $block['align'] ) ) {
 // Load values and assign defaults.
 $title                = get_field( 'title' ) ?: 'Lorem Ipsum Dolor';
 $subtitle             = get_field( 'subtitle' ) ?: 'Lorem Ipsum Dolor';
+$icon                 = get_field( 'icon' ) ?: "arrow";
 
 ?>
 
- <section class="bg-white w-full my-10">
-            <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full">
+<div class="border border-gray-800 rounded">
+                        <div class="py-3 px-5 bg-red">
+                            <h3 class="text-white text-lg font-semibold"><?php echo $title; ?></h3>
+                        </div>
+                        <ul class="p-5 space-y-2">
 
-                <div class="mt-10 w-full"> 
-                <h2 class="text-4xl md:text-3xl text-center font-semibold text-gray-600"><?php echo $title; ?></h2>
-                    <p class="text-sm md:text-base text-center text-gray-600 mt-3 font-droid"><?php echo $subtitle; ?></p>
-                     
-                        <ul class="grid grid-cols-3 sm:grid-cols-2 mx-auto max-w-lg " >
+
                         <?php
 
 // Check rows existexists.
@@ -54,9 +54,22 @@ if( have_rows('features') ):
 
         
         $feature = get_sub_field('feature');
-        echo '<li class="text-base sm:text-xl font-bold text-gray-600 font-droid"><i class="fa-solid fa-check text-red mr-2"></i>';
+        echo '<li class="flex gap-x-2.5 items-center">';
+        echo '<span class="text-green">';
+        if ($icon == "check") { ?>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <?php } 
+        else if ($icon == "arrow") { ?>        
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+      <?php } 
+         
+    echo '</span><span class="text-base">';
         echo $feature;
-        echo '</li>';
+        echo '</span></li>';
 
     // End loop.
     endwhile;
@@ -68,10 +81,6 @@ if( have_rows('features') ):
 
 endif;
 
-?>
+?>                        
                         </ul>
-
-             
-                </div>
-            </div>
-        </section>
+                    </div>

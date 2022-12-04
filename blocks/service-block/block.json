@@ -1,0 +1,14 @@
+{
+    "name": "acf/service-block",
+    "title": "service-block",
+    "description": "A custom service-block block.",
+    "style": [ "file:./service-block.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["service-block", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "service-block.php"
+    },
+    "align": "full"
+}

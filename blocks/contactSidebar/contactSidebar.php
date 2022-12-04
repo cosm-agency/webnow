@@ -1,6 +1,6 @@
 <?php
 /**
- * cta Block Template.
+ * contactSidebar Block Template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -18,7 +18,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'cta-block';
+$class_name = 'contactSidebar-block';
 if ( ! empty( $block['className'] ) ) {
     $class_name .= ' ' . $block['className'];
 }
@@ -43,9 +43,9 @@ $style  = implode( '; ', $styles );
 
 ?>
         <section class="bg-white w-full">
-            <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full text-center border-t border-gray-200 py-12">
+            <div class="mx-auto max-w-2xl px-5 lg:px-7 2xl:px-0 w-full text-center border-t border-gray-200 py-12">
                 <h2 class="text-xl md:text-3xl text-gray-900"><?php echo $title; ?></h2>
-                <p class="text-yourbugs-red text-3xl font-bold my-4 font-droid text-red"><?php echo $subtitle; ?></p>
+                <p class="text-yourbugs-red text-3xl font-bold my-4 font-droid"><?php echo $subtitle; ?></p>
                 <a href="<?php echo $link_1_url; ?>" class="inline-block w-full sm:w-auto sm:min-w-[180px] whitespace-nowrap justify-center gap-x-1 text-white px-10 py-5 bg-green hover:bg-yourbugs-darkGreen duration-200 border-none rounded font-bold tracking-wide text-xl mb-4 shadow-md hover:shadow shadow-black/60">
                 <?php echo $link_1_text; ?>
                 </a>

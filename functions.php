@@ -154,7 +154,66 @@ function register_acf_blocks() {
 	register_block_type( __DIR__ . '/blocks/hero' );
 	register_block_type( __DIR__ . '/blocks/infobox' );
 	register_block_type( __DIR__ . '/blocks/reviews' );
+	register_block_type( __DIR__ . '/blocks/service-block' );
 	register_block_type( __DIR__ . '/blocks/service-grid' );
 	register_block_type( __DIR__ . '/blocks/testimonial' );
 	register_block_type( __DIR__ . '/blocks/custom-container' );
+	register_block_type( __DIR__ . '/blocks/titlebar' );
+	register_block_type( __DIR__ . '/blocks/sidebar' ); 
+	
+	register_block_type( __DIR__ . '/blocks/widget-feature-list' ); 
+	register_block_type( __DIR__ . '/blocks/widget-gravity-form' ); 
+
+	register_block_type( __DIR__ . '/blocks/contactSidebar' );	
+
 }
+
+
+
+## Adding font awesome
+function enqueue_load_fa() {
+	wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
+  }
+  
+  add_action( 'wp_enqueue_scripts', 'enqueue_load_fa');
+
+
+function arphabet_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Sidebar 1',
+		'id'            => 'sidebar_1',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Sidebar Contact',
+		'id'            => 'sidebar_contact',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+
+}
+add_action( 'widgets_init', 'arphabet_widgets_init' );
+
+
+function acf_populate_gf_forms_ids( $field ) {
+	if ( class_exists( 'GFFormsModel' ) ) {
+		$choices = [];
+
+		foreach ( \GFFormsModel::get_forms() as $form ) {
+			$choices[ $form->id ] = $form->title;
+		}
+
+		$field['choices'] = $choices;
+	}
+
+	return $field;
+}
+add_filter( 'acf/load_field/name=submit_project_gf_form_id', 'acf_populate_gf_forms_ids' );

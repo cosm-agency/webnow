@@ -29,12 +29,9 @@ if ( ! empty( $block['align'] ) ) {
 
 $background_color = get_field( 'background_color' );
 $text_color       = get_field( 'text_color' );
-
-// Build a valid style attribute for background and text colors.
-$styles = array( 'background-color: ' . $background_color, 'color: ' . $text_color );
-$style  = implode( '; ', $styles );
+$padding          = get_field( 'padding' );
 
 ?>
-<div <?php echo $anchor; ?>class="<?php echo esc_attr( $class_name ); ?> mx-auto max-w-content" style="<?php echo esc_attr( $style ); ?>">
-    <InnerBlocks />
+<div <?php echo $anchor; ?>class="<?php echo esc_attr( $class_name ); ?> mx-auto max-w-content " >
+    <InnerBlocks class="<?php echo $padding; ?>" />
 </div>

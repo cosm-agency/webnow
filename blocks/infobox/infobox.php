@@ -27,30 +27,34 @@ if ( ! empty( $block['align'] ) ) {
 }
 
 // Load values and assign defaults.
-$text             = get_field( 'infobox' ) ?: 'Your infobox here...';
-$author           = get_field( 'author' ) ?: 'Author name';
-$author_role      = get_field( 'role' ) ?: 'Author role';
-$image            = get_field( 'image' ) ?: 295;
-$background_color = get_field( 'background_color' );
-$text_color       = get_field( 'text_color' );
-
-// Build a valid style attribute for background and text colors.
-$styles = array( 'background-color: ' . $background_color, 'color: ' . $text_color );
-$style  = implode( '; ', $styles );
+$title                = get_field( 'title' ) ?: 'Lorem Ipsum Dolor';
+$subtitle             = get_field( 'subtitle' ) ?: 'Lorem Ipsum Dolor';
+//Sierra Vista Exterminators – 86 Your Bugs
+//For over 10 years, homeowners and business owners throughout Tulare County have counted on SVE, Porterville’s best pest and termite control company to offer the professional, quality exterminating services. We take care of our customers the way we would want to be taken care of.  We have found that our customers soon become our friends that we meet in the grocery store and around town as we take care of our daily business. We want to treat you our customers, as friends and work with you to keep your homes pest free. When you deal with Gene & Kim Day you are dealing with the owners of the company and we have a reputation to uphold. We are a full-service pest and termite control company providing the highest quality service for Porterville, Tulare, Camp Nelson, Springville, Visalia, Terra Bella, Lindsay and the surrounding areas.
+$foreground_image     = get_field( 'foreground_image' ) ?: 0;
+$size = 'full'; // (thumbnail, medium, large, full or custom size)
+if( $foreground_image ) {
+    echo wp_get_attachment_image( $foreground_image, $size );
+}
 
 ?>
         <section class="bg-white w-full my-10">
             <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-8 w-full flex items-center flex-col md:flex-row justify-between bg-gray-100 py-12 gap-10">
                 <div class="flex w-full flex-col gap-y-4">
                     <h3 class="text-2xl text-gray-700 font-semibold">
-                        Sierra Vista Exterminators – 86 Your Bugs
+                        <?php echo $title; ?>
                     </h3>
-                   <p class="text-gray-800 text-sm leading-normal font-droid">
-                    For over 10 years, homeowners and business owners throughout Tulare County have counted on SVE, Porterville’s best pest and termite control company to offer the professional, quality exterminating services. We take care of our customers the way we would want to be taken care of.  We have found that our customers soon become our friends that we meet in the grocery store and around town as we take care of our daily business. We want to treat you our customers, as friends and work with you to keep your homes pest free. When you deal with Gene & Kim Day you are dealing with the owners of the company and we have a reputation to uphold. We are a full-service pest and termite control company providing the highest quality service for Porterville, Tulare, Camp Nelson, Springville, Visalia, Terra Bella, Lindsay and the surrounding areas.
+                   <p class="text-gray-800 leading-normal font-droid">
+                   <?php echo $subtitle; ?>
                    </p>
                 </div>
                 <div class="flex w-full">
-                    <img src="../assets/86yourbugs/Fotolia_74619773_XS.jpg" class="w-full h-full" alt="">
+                    <?php
+                    if( !empty( $foreground_image ) ): ?>
+                        <img src="<?php echo esc_url($foreground_image['url']); ?>" alt="<?php echo esc_attr($foreground_image['alt']); ?>" class="w-full h-full" />
+                    <?php endif; ?>
+
+                    
                 </div>
             </div>
         </section>

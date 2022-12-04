@@ -27,34 +27,70 @@ if ( ! empty( $block['align'] ) ) {
 }
 
 // Load values and assign defaults.
-$text             = get_field( 'reviews' ) ?: 'Your reviews here...';
-$author           = get_field( 'author' ) ?: 'Author name';
-$author_role      = get_field( 'role' ) ?: 'Author role';
-$image            = get_field( 'image' ) ?: 295;
-$background_color = get_field( 'background_color' );
-$text_color       = get_field( 'text_color' );
+$yelp_link        = get_field('yelp_link') ?: '';
+$google_link      = get_field('google_link') ?: '';
 
-// Build a valid style attribute for background and text colors.
-$styles = array( 'background-color: ' . $background_color, 'color: ' . $text_color );
-$style  = implode( '; ', $styles );
 
 ?>
-        <section class="bg-white w-full">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+        <section class="bg-white w-full py-4">
             <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-8 w-full flex items-center justify-between flex-col-reverse md:flex-row bg-gray-100 py-12 gap-10 rounded">
                 <div class="inline-flex flex-col xs:flex-row md:flex-col w-full xs:w-auto gap-3">
-                    <button class="inline-flex items-center w-full xs:min-w-[180px] whitespace-nowrap justify-center gap-x-1 px-5 py-2.5 text-white duration-200 border-none rounded font-medium tracking-wide text-base shadow hover:shadow-sm shadow-gray-600/4 bg-red hover:bg-[#ee2128]">
+                    <a class="inline-flex items-center w-full xs:min-w-[180px] whitespace-nowrap justify-center gap-x-1 px-5 py-2.5 text-white duration-200 border-none rounded font-medium tracking-wide text-base shadow hover:shadow-xl shadow-gray-600/4 bg-red hover:bg-[#ee2128] " href="<?php echo $yelp_link; ?>" target="_blank">
                         <i class="fa-brands fa-yelp"></i>
                         Yelp
-                    </button>
-                    <button class="inline-flex items-center w-full xs:min-w-[180px] whitespace-nowrap justify-center gap-x-1 px-5 py-2.5 text-white duration-200 border-none rounded font-medium tracking-wide text-base shadow hover:shadow-sm shadow-gray-600/4 bg-green hover:bg-darkGreen">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        Write Review
-                    </button>
+                    </a>
+                    <a class="inline-flex items-center w-full xs:min-w-[180px] whitespace-nowrap justify-center gap-x-1 px-5 py-2.5 text-white duration-200 border-none rounded font-medium tracking-wide text-base shadow hover:shadow-xl shadow-gray-600/4 bg-green hover:bg-darkGreen" href="<?php echo $google_link; ?>" target="_blank">
+                        <i class="fa-brands fa-google"></i>
+                        Google
+                    </a>
                 </div>
-                <div class="flex w-full">
-                   <p class="text-center text-gray-700 text-base md:text-lg leading-5">
-                    "I just want to say that since we have had Sierra Vista Exterminators we have had the best care and have not had any problems. Gene is nice and friendly really good at what he does we are very pleased so I recommend that you get Sierra Vista for your pest control."
-                   </p>
-                </div>
+
+                <?php
+
+// Check rows existexists.
+if( have_rows('testimonials') ):
+
+    echo '<section class="splide">
+    <div class="splide__track ">
+          <ul class="splide__list ">';
+
+
+    // Loop through rows.
+    while( have_rows('testimonials') ) : the_row();
+
+        // Load sub field value.
+
+        
+        $testimonial = get_sub_field('testimonial');
+        echo '<li class="splide__slide"><p class="text-center text-gray-700 text-base md:text-lg leading-5">"';
+        echo $testimonial;
+        echo '"</p></li>';
+
+    // End loop.
+    endwhile;
+
+
+    echo '</ul>
+    </div>
+  </section>';
+
+
+
+endif;
+
+?>
+                <script>
+  new Splide( '.splide', {
+  classes: {
+		arrows: 'splide__arrows hidden',
+		arrow : 'splide__arrow hidden',
+        pagination: 'mb-0 bottom-0 flex justify-center flex-row space-x-4',
+		page      : 'splide__page flex-start bg-gray-500 rounded-sm inline-block hover:cursor-pointer h-4 w-4',
+  },
+}  ).mount();
+</script> 
+               
             </div>
         </section>

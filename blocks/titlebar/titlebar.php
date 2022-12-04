@@ -1,6 +1,6 @@
 <?php
 /**
- * service-grid Block Template.
+ * titlebar Template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -18,7 +18,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'service-grid-block';
+$class_name = 'titlebar-block';
 if ( ! empty( $block['className'] ) ) {
     $class_name .= ' ' . $block['className'];
 }
@@ -29,11 +29,15 @@ if ( ! empty( $block['align'] ) ) {
 // Load values and assign defaults.
 $title                = get_field( 'title' ) ?: '';
 $subtitle             = get_field( 'subtitle' ) ?: '';
-$columns_mobile       = get_field( 'columns_mobile' ) ?: 1;
-$columns_tablet       = get_field( 'columns_tablet' ) ?: 2;
-$columns_desktop       = get_field( 'columns_desktop' ) ?: 3;
 
 ?>
- <section class="bg-white w-full my-14">
-            <InnerBlocks class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full grid grid-cols-<?php echo $columns_mobile; ?> sm:grid-cols-<?php echo $columns_tablet; ?> md:grid-cols-<?php echo $columns_desktop; ?> gap-8" />
-        </section>
+                <section class="bg-gray-200 w-full shadow-lg mb-6">
+           <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full  py-6 text-center md:text-left">
+                <h1 class="text-2xl md:text-3xl font-semibold text-gray-800"><?php echo $title; ?></h1>
+                <?php if ($subtitle) { ?> 
+                <p class="text-gray-600 text-base leading-normal font-droid block">
+                    <?php echo $subtitle; ?>
+                </p> 
+                <?php } ?> 
+           </div>
+       </section>

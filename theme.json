@@ -26,6 +26,12 @@
           "name": "Dark Green",
           "slug": "darkGreen",
           "color": "#6db954"
+
+        },
+        {
+          "name": "Gray 500",
+          "slug": "gray-500",
+          "color": "#999"
         }
       ]
     },

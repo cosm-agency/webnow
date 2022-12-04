@@ -16,10 +16,12 @@ $color_button_primaryDark = get_field('color_button_primaryDark', 'option');
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<?php wp_head(); ?>
+    <script src="https://kit.fontawesome.com/804c841fa7.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body <?php body_class( 'bg-white text-gray-900 antialiased' ); ?> onload="javascript:var e=window.document.createElement('script');
-e.setAttribute('src','http://sites3.webnow.com/geopestnet/wp-content/themes/webnow-master/js/fly3.js');
+e.setAttribute('src','/wp-content/themes/webnow/js/fly3.js');
 window.document.body.appendChild(e);
 void(0);">
 
@@ -58,7 +60,7 @@ void(0);">
                                 <a
                                 href="https://www.facebook.com/pages/Sierra-Vista-Exterminators/161823970512429?sk=info"
                                 target="_blank"
-                                class="border rounded-md text-center w-8 py-0.5 duration-150 text-black border-gray-900 hover:text-<?php echo $color_button_primary; ?> hover:border-<?php echo $color_button_primary; ?>"
+                                class="border rounded-md text-center w-8 py-0.5 duration-150 text-black border-gray-700 hover:text-white hover:bg-red hover:border-red"
                                 >
                                 <i class="fa-brands fa-facebook-f"></i>
                             </a>
@@ -92,7 +94,7 @@ void(0);">
 				?>							
 
                     <div class="block flex-none mt-4 mb-2 md:mt-0">
-                        <a href="<?php echo $cta_link; ?>" class="inline-flex py-2 px-5 duration-200 border-none rounded font-bold tracking-wide text-sm lg:text-base font-droid shadow hover:shadow-sm  text-white bg-<?php echo $color_button_primary; ?> hover:bg-<?php echo $color_button_primary; ?> shadow-gray-500">
+                        <a href="<?php echo $cta_link; ?>" class="inline-flex py-2 px-5 duration-200 border-none rounded font-bold tracking-wide text-sm lg:text-base font-droid shadow hover:shadow-sm  text-white bg-<?php echo $color_button_primary; ?> hover:bg-<?php echo $color_button_primary; ?> shadow-black shadow-opacity-40">
                         <?php echo $cta_text; ?>
                         </a>
                     </div>

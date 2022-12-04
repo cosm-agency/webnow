@@ -1,0 +1,14 @@
+{
+    "name": "acf/widget-feature-list",
+    "title": "widget-feature-list",
+    "description": "A custom widget-feature-list block.",
+    "style": [ "file:./widget-feature-list.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["widget-feature-list", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "widget-feature-list.php"
+    },
+    "align": "full"
+}

@@ -7,9 +7,10 @@ module.exports = {
     content: [
         './*.php',
         './**/*.php',
+        './blocks/reviews/reviews.php',
         './resources/css/*.css',
         './resources/js/*.js',
-        './blocks/feature-list/feature-list.php',
+    
         './safelist.txt'
     ],
     theme: {

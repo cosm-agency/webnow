@@ -28,11 +28,9 @@ if ( ! empty( $block['align'] ) ) {
 
 // Load values and assign defaults.
 $text             = get_field( 'testimonial' ) ?: 'Your testimonial here...';
-$author           = get_field( 'author' ) ?: 'Author name';
-$author_role      = get_field( 'role' ) ?: 'Author role';
-$image            = get_field( 'image' ) ?: 295;
-$background_color = get_field( 'background_color' );
-$text_color       = get_field( 'text_color' );
+$source           = get_field( 'source' ) ?: 'John Doe';
+$background_color = "#FFF";
+$text_color = "#000";
 
 // Build a valid style attribute for background and text colors.
 $styles = array( 'background-color: ' . $background_color, 'color: ' . $text_color );
@@ -40,12 +38,21 @@ $style  = implode( '; ', $styles );
 
 ?>
 <div <?php echo $anchor; ?>class="<?php echo esc_attr( $class_name ); ?>" style="<?php echo esc_attr( $style ); ?>">
-    <blockquote class="testimonial-blockquote">
-        <span class="testimonial-text"><?php echo esc_html( $text ); ?></span>
-        <span class="testimonial-author"><?php echo esc_html( $author ); ?></span>
-        <span class="testimonial-role"><?php echo esc_html( $author_role ); ?></span>
-    </blockquote>
-    <div class="testimonial-image">
-        <?php echo wp_get_attachment_image( $image, 'full' ); ?>
-    </div>
+
+
+    <blockquote class="flex flex-col sm:flex-row w-full gap-6 py-8 rounded-xl shadow-md my-4 p-4">
+                            <span class="text-gray-300 text-4xl">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </span>
+                            <div class="space-y-4 text-gray-800">
+                               <p class="font-droid text-base font-normal">
+                               <?php echo $text; ?>
+                               </p>
+                                <div class="text-sm font-bold"><?php echo $source; ?></div>
+                            </div>
+                        </blockquote>                  
+
 </div>
+ 
+
+

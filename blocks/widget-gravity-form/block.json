@@ -1,0 +1,14 @@
+{
+    "name": "acf/widget-gravity-form",
+    "title": "widget-gravity-form",
+    "description": "A custom widget-gravity-form block.",
+    "style": [ "file:./widget-gravity-form.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["widget-gravity-form", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "widget-gravity-form.php"
+    },
+    "align": "full"
+}

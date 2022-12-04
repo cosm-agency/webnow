@@ -1,0 +1,14 @@
+{
+    "name": "acf/sidebar",
+    "title": "sidebar",
+    "description": "A custom sidebar block.",
+    "style": [ "file:./sidebar.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["sidebar", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "sidebar.php"
+    },
+    "align": "full"
+}

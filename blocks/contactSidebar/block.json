@@ -1,0 +1,14 @@
+{
+    "name": "acf/contactSidebar",
+    "title": "contactSidebar",
+    "description": "A custom contactSidebar block.",
+    "style": [ "file:./contactSidebar.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["contactSidebar", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "contactSidebar.php"
+    },
+    "align": "full"
+}

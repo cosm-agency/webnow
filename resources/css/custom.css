@@ -28,7 +28,7 @@ article > *:not(.entry-content),
         @apply mb-8;
     }
 
-    ul:not(.block-editor-block-variation-picker__variations) {
+ /*   ul:not(.block-editor-block-variation-picker__variations) {
         li {
             @apply list-disc list-inside;
         }
@@ -38,7 +38,19 @@ article > *:not(.entry-content),
         li {
             @apply list-decimal list-inside;
         }
-    }
+    }  */
+}
+
+.splide__page {
+    @apply hover:bg-black;
+}
+
+.splide__page.is-active {
+    @apply border border-black bg-white ;
+}
+
+.splide__pagination {
+    @apply mb-0 bottom-0;
 }
 
 
@@ -66,3 +78,144 @@ article > *:not(.entry-content),
       transform: scale(1.1);
     }
   }
+
+
+  
+@media (min-width: 640px){
+  .alignleft:not(.wp-block-button){
+    @apply float-left mr-8;
+
+  }
+
+  .alignright:not(.wp-block-button){
+    @apply float-right ml-8;
+
+  }
+
+  .wp-block-button.alignleft a{
+    @apply float-left mr-48 ;
+   
+
+  } 
+
+  .wp-block-button.alignright a{
+    @apply float-right ml-4;
+
+  }
+}
+
+
+article > *:not(.entry-content),
+.entry-content > * {
+    /*@apply mx-auto max-w-content;*/
+}
+
+.entry-content, .block-editor-block-list__layout {
+    h1 {
+      /*  @apply text-2xl;*/
+    }
+
+    h2 {
+      /*  @apply text-xl;*/
+    }
+
+    h3 {
+      /*  @apply text-lg; */
+    }
+ 
+    p, ul, ol {
+        a {
+            @apply text-blue-500 underline;
+
+            &:hover {
+                @apply no-underline;
+            }
+        }
+
+        @apply mb-8;
+    }
+
+ /*   ul:not(.block-editor-block-variation-picker__variations) {
+        li {
+            @apply list-disc list-inside;
+        }
+    }
+
+    ol {
+        li {
+            @apply list-decimal list-inside;
+        }
+    }  */
+}
+
+.splide__page {
+    @apply hover:bg-black;
+}
+
+.splide__page.is-active {
+    @apply border border-black bg-white ;
+}
+
+.splide__pagination {
+    @apply mb-0 bottom-0;
+}
+
+
+@font-face {
+    font-family: "Droid Regular";
+    src: url("./assets/Droid_Sans/DroidSans.ttf");
+}
+@font-face {
+    font-family: "Droid Bold";
+    src: url("./assets/Droid_Sans/DroidSans-Bold.ttf");
+}
+
+.hero-content{
+    animation: zoomIn 5s ease-in-out 0.2s;
+}
+.font-lato { font-family: 'Lato', sans-serif; }
+.font-droid{ font-family: 'Droid Sans', arial; }
+
+@keyframes zoomIn {
+    from {
+      transform: scale(1);
+    }
+  
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+
+  
+@media (min-width: 640px){
+  .alignleft:not(.wp-block-button){
+    @apply float-left mr-8;
+
+  }
+
+  .alignright:not(.wp-block-button){
+    @apply float-right ml-8; 
+
+  }
+
+  .wp-block-button.alignleft a{
+    @apply float-left mr-48 ;
+   
+
+  } 
+
+  .wp-block-button.alignright a{
+    @apply float-right ml-4;
+
+  }
+}
+
+
+.gform_button {  
+     @apply inline-block sm:w-auto sm:min-w-[180px] whitespace-nowrap justify-center gap-x-1 text-white px-10 py-3 bg-green hover:bg-darkGreen duration-200 border-none rounded font-bold tracking-wide text-xl mb-4 shadow-md hover:shadow w-full cursor-pointer;
+}
+
+.ginput_container {
+    @apply rounded;
+}

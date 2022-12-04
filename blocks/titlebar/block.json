@@ -1,0 +1,14 @@
+{
+    "name": "acf/titlebar",
+    "title": "titlebar",
+    "description": "A custom titlebarblock.",
+    "style": [ "file:./titlebar.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["titlebar", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "titlebar.php"
+    },
+    "align": "full"
+}
