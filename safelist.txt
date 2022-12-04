@@ -39,3 +39,5 @@ mb
 list-disc
 pl-4
 ml-2
+
+<span class="text-red">For Emergency Pest Control, call us right away at (559) 784-8600</span>
