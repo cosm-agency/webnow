@@ -11,6 +11,12 @@
  * @param   array $context The context provided to the block by the post or it's parent block.
  */
 
+$color_primary = get_field('color_primary', 'option');
+$color_primaryDark = get_field('color_primaryDark', 'option');
+$color_button_primary = get_field('color_button_primary', 'option');
+$color_button_primaryDark = get_field('color_button_primaryDark', 'option');
+
+
 // Support custom "anchor" values.
 $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
@@ -34,7 +40,7 @@ $form_id              = get_field( 'form_id' ) ?: 1;
 ?>
 
 <div class="border border-gray-800 rounded">
-                        <div class="py-3 px-5 bg-red">
+                        <div class="py-3 px-5 bg-<?php echo $color_primary; ?>">
                             <h3 class="text-white text-lg font-semibold"><?php echo $title; ?></h3>
                         </div>
                         <div class="p-4">

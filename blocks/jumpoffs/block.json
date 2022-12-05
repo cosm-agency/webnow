@@ -1,0 +1,14 @@
+{
+    "name": "acf/jumpoffs",
+    "title": "jumpoffs",
+    "description": "A custom jumpoffs block.",
+    "style": [ "file:./jumpoffs.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["jumpoffs", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "jumpoffs.php"
+    },
+    "align": "full"
+}

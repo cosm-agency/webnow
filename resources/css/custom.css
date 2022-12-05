@@ -219,3 +219,7 @@ article > *:not(.entry-content),
 .ginput_container {
     @apply rounded;
 }
+
+.custom-logo-link img {
+  max-width:250px;
+}

@@ -1,6 +1,9 @@
 <?php
 	$city = get_field('city', 'option');
 	$state = get_field('state', 'option');
+  $address_1 = get_field('address_1', 'option');
+  $address_2 = get_field('address_2', 'option');
+
 	$color_primary = get_field('color_primary', 'option');
 	$color_primaryDark = get_field('color_primaryDark', 'option');
 ?>
@@ -10,7 +13,7 @@
 
 </div>
 
-<?php do_action( 'tailpress_content_after' ); ?>
+<?php do_action( 'tailpress_content_after' ); ?> 
 
 
 <footer id="colophon" class="w-full bg-gradient-to-b from-<?php echo $color_primary; ?> to-<?php echo $color_primaryDark; ?>"  role="contentinfo">
@@ -36,7 +39,13 @@
                 <p class="font-droid  text-gray-200 text-sm opacity-80">&copy; <?php echo date_i18n( 'Y' );?> - <?php echo get_bloginfo( 'name' );?></p>
             </div>
             <div class="text-right">
-                <p class="text-gray-100 text-base font-droid"><?php echo get_bloginfo( 'name' );?><span class="text-gray-200 text-sm block"><?php echo $city; ?>, <?php echo $state; ?></span></p>
+                <p class="text-gray-100 text-base font-droid">
+                  <?php echo get_bloginfo( 'name' );?>
+                  <span class="text-gray-200 text-sm block">
+                    <?php if (isset($address_1)) { echo $address_1; } ?> 
+                    <?php if (isset($address_2)) { echo $address_2; } ?> - 
+                    <?php echo $city; ?>, 
+                    <?php echo $state; ?></span></p>
             </div>
         </div>
 
