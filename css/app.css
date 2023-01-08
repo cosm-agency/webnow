@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DroidSans:wght@300;400;700&display=swap');
 
 /*
-! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
+! tailwindcss v3.2.1 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -34,7 +34,6 @@
 2. Prevent adjustments of font size after orientation changes in iOS.
 3. Use a more readable tab size.
 4. Use the user's configured `sans` font-family by default.
-5. Use the user's configured `sans` font-feature-settings by default.
 */
 
 html {
@@ -49,8 +48,6 @@ html {
   /* 3 */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
-  font-feature-settings: normal;
-  /* 5 */
 }
 
 /*
@@ -847,6 +844,10 @@ select{
   margin-left: 0.5rem;
 }
 
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
 .mb-8{
   margin-bottom: 2rem;
 }
@@ -861,10 +862,6 @@ select{
 
 .mt-1{
   margin-top: 0.25rem;
-}
-
-.mb-2{
-  margin-bottom: 0.5rem;
 }
 
 .mb-4{
@@ -1616,6 +1613,11 @@ select{
   line-height: 2rem;
 }
 
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-5xl{
   font-size: 3rem;
   line-height: 1;
@@ -1635,11 +1637,6 @@ select{
   font-size: 1.25rem;
 }
 
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -1653,12 +1650,12 @@ select{
   font-weight: 600;
 }
 
-.font-light{
-  font-weight: 300;
-}
-
 .font-bold{
   font-weight: 700;
+}
+
+.font-light{
+  font-weight: 300;
 }
 
 .font-normal{

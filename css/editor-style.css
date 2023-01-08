@@ -162,6 +162,10 @@
   margin-left: 0.5rem
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem
+}
+
 .mb-8 {
   margin-bottom: 2rem
 }
@@ -176,10 +180,6 @@
 
 .mt-1 {
   margin-top: 0.25rem
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem
 }
 
 .mb-4 {
@@ -931,6 +931,11 @@
   line-height: 2rem
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem
+}
+
 .text-5xl {
   font-size: 3rem;
   line-height: 1
@@ -950,11 +955,6 @@
   font-size: 1.25rem
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem
@@ -968,12 +968,12 @@
   font-weight: 600
 }
 
-.font-light {
-  font-weight: 300
-}
-
 .font-bold {
   font-weight: 700
+}
+
+.font-light {
+  font-weight: 300
 }
 
 .font-normal {
