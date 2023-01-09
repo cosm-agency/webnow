@@ -16,7 +16,7 @@
 <?php do_action( 'tailpress_content_after' ); ?> 
 
 
-<footer id="colophon" class="w-full bg-gradient-to-b from-<?php echo $color_primary; ?> to-<?php echo $color_primaryDark; ?>"  role="contentinfo">
+<footer id="colophon" class="w-full"  role="contentinfo">
 <?php do_action( 'tailpress_footer' ); ?>
         <!-- Desktop -->
         <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full hidden md:flex items-center justify-between py-5">

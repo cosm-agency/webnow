@@ -42,7 +42,20 @@
           "name": "Dark Primary",
           "slug": "darkPrimary",
           "color": "#1a57a1" 
+        },
+        {
+          "name": "Gray 500",
+          "slug": "gray-500",
+          "color": "#2b2b2b"
+          
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "#000"
+          
         }        
+
 
  
       ]

@@ -6,6 +6,11 @@ $color_primary = get_field('color_primary', 'option');
 $color_primaryDark = get_field('color_primaryDark', 'option');
 $color_button_primary = get_field('color_button_primary', 'option');
 $color_button_primaryDark = get_field('color_button_primaryDark', 'option');
+$brand = brand;
+// get a defined value
+
+
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -20,7 +25,7 @@ $color_button_primaryDark = get_field('color_button_primaryDark', 'option');
 
 </head>
 
-<body <?php body_class( 'bg-white text-gray-900 antialiased' ); ?> onload="javascript:var e=window.document.createElement('script');
+<body <?php body_class( 'bg-white text-gray-900 antialiased ' . $brand ); ?> onload="javascript:var e=window.document.createElement('script');
 e.setAttribute('src','/wp-content/themes/webnow/js/fly3.js');
 window.document.body.appendChild(e);
 void(0);">
@@ -30,11 +35,31 @@ void(0);">
 <div id="page" class="min-h-screen flex flex-col">
 
 	<?php do_action( 'tailpress_header' ); ?>
-	<header class="w-full bg-white" x-data="{ openMenu: false }">
+	<header class="w-full" x-data="{ openMenu: false }">
         <!-- Desktop -->
         <div class="relative w-full z-10">
             <!-- TOP -->
-            <div class="bg-white w-full py-5 sm:py-3">
+            <div class="
+            <?php if ($brand == "bugs") {
+    //    
+    ?>
+    bg-white
+<?php } else if ($brand == "signatureav") {
+    // 
+     ?>
+    from-primary to-darkPrimary bg-gradient-to-b text-white
+<?php } else if ($brand == "sborganics") {
+    // 
+     ?>
+    bg-black
+<?php } else if ($brand == "signaturealarm") {
+    // 
+     ?>
+    bg-black
+<?php } else { ?>
+    bg-white
+<?php } ?>
+            w-full py-5 sm:py-3">
                 <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full  flex items-center justify-between">
                  
 						<?php if ( has_custom_logo() ) { ?>
@@ -55,15 +80,62 @@ void(0);">
                             </svg>
                         </button>
                     </div>
+                    
                     <div class="hidden md:flex flex-col items-end">
                         <div class="inline-flex gap-x-2">
-                                <a
-                                href="https://www.facebook.com/pages/Sierra-Vista-Exterminators/161823970512429?sk=info"
-                                target="_blank"
-                                class="border rounded-md text-center w-8 py-0.5 duration-150 text-black border-gray-700 hover:text-white hover:bg-red hover:border-red"
-                                >
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
+                        <?php
+
+$social_media = ['facebook', 'twitter'];
+
+
+foreach ($social_media as $platform) {
+    $url = get_field('field_' . $platform . '_url', 'option');
+    if ($url) {
+        ?>
+        <a
+            href="<?php echo $url; ?>"
+            target="_blank"
+            class="border rounded-md text-center w-8 py-0.5 duration-150
+
+<?php if ($brand == "bugs") {
+    //    
+    ?>
+    text-black
+    border-gray-700
+    hover:bg-red
+    hover:border-red
+    hover:text-white
+<?php } else if ($brand == "signatureav") {
+    // 
+     ?>
+    hover:bg-white
+    hover:border-white
+    hover:text-black
+<?php } else if ($brand == "sborganics") {
+    // 
+     ?>
+    hover:bg-black
+    hover:border-black
+    hover:text-white
+<?php } else if ($brand == "signaturealarm") {
+    // 
+     ?>
+    hover:bg-black
+    hover:border-black
+    hover:text-white
+<?php } else { ?>
+    hover:bg-blue-400
+    hover:border-blue-400
+<?php } ?>
+            "
+        >
+            <i class="fa-brands fa-<?php echo $platform; ?>"></i>
+        </a>
+    <?php
+     }
+}
+
+?>
 
                         </div>
                         <div class="mt-1.5">
@@ -78,7 +150,34 @@ void(0);">
                 </div>
             </div>
             <!-- Bottom -->
-            <div class="w-full bg-gradient-to-b from-<?php echo $color_primary; ?> to-<?php echo $color_primaryDark; ?> py-3.5 relative z-50 md:block hidden">
+            <div class="w-full shadow-inner
+
+            
+            <?php if ($brand == "bugs") {
+    //    
+    ?>
+    bg-white
+    from-<?php echo $color_primary; ?>
+    to-<?php echo $color_primaryDark; ?>
+<?php } else if ($brand == "signatureav") {
+    // 
+     ?>
+     border-t border-b border-black
+    bg-gray-500
+    text-white
+<?php } else if ($brand == "sborganics") {
+    // 
+     ?>
+    bg-black
+<?php } else if ($brand == "signaturealarm") {
+    // 
+     ?>
+    bg-black
+<?php } else { ?>
+    bg-white
+<?php } ?>            
+            
+            bg-gradient-to-b  py-3.5 relative z-50 md:block hidden">
                 <div class="mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full  flex items-center md:flex-row flex-col justify-between gap-x-2">
 				<?php
 				wp_nav_menu(
@@ -94,9 +193,54 @@ void(0);">
 				?>							
 
                     <div class="block flex-none mt-4 mb-2 md:mt-0">
-                        <a href="<?php echo $cta_link; ?>" class="inline-flex py-2 px-5 duration-200 border-none rounded font-bold tracking-wide text-sm lg:text-base font-droid shadow hover:shadow-sm  text-white bg-<?php echo $color_button_primary; ?> hover:bg-<?php echo $color_button_primary; ?> shadow-black shadow-opacity-40">
+                        <a
+                            href="<?php echo $cta_link; ?>"
+                            class="
+
+                            <?php if ($brand == "bugs") {
+    //    
+    ?>
+inline-flex py-2 px-5 duration-200  rounded font-bold tracking-wide text-sm lg:text-base font-droid shadow hover:shadow-sm  text-white bg-<?php echo $color_button_primary; ?> hover:bg-<?php echo $color_button_primary; ?> shadow-black shadow-opacity-40
+border-none
+<?php } else if ($brand == "signatureav") {
+     ?>
+    inline-flex
+    py-2 px-5
+    
+    duration-200 rounded
+    
+    font-bold
+    tracking-wide
+    text-sm lg:text-base
+    font-droid 
+    
+    text-white
+    hover:text-black
+
+    bg-<?php echo $color_button_primary; ?>
+    hover:bg-white
+
+    shadow
+    hover:shadow-sm 
+    shadow-black
+    shadow-opacity-40
+
+<?php } else if ($brand == "sborganics") {
+    // 
+     ?>
+    inline-flex py-2 px-5 duration-200 border-none rounded font-bold tracking-wide text-sm lg:text-base font-droid shadow hover:shadow-sm  text-white bg-<?php echo $color_button_primary; ?> hover:bg-<?php echo $color_button_primary; ?> shadow-black shadow-opacity-40
+<?php } else if ($brand == "signaturealarm") {
+    // 
+     ?>
+    inline-flex py-2 px-5 duration-200 border-none rounded font-bold tracking-wide text-sm lg:text-base font-droid shadow hover:shadow-sm  text-white bg-<?php echo $color_button_primary; ?> hover:bg-<?php echo $color_button_primary; ?> shadow-black shadow-opacity-40
+<?php } else { ?>
+    inline-flex py-2 px-5 duration-200 border-none rounded font-bold tracking-wide text-sm lg:text-base font-droid shadow hover:shadow-sm  text-white bg-<?php echo $color_button_primary; ?> hover:bg-<?php echo $color_button_primary; ?> shadow-black shadow-opacity-40
+<?php } ?>  
+"
+
+                        >
                         <?php echo $cta_text; ?>
-                        </a>
+                        </a> 
                     </div>
                 </div>
             </div>
@@ -133,7 +277,7 @@ void(0);">
 						'container_class' => 'mx-auto max-w-5xl px-5 lg:px-7 2xl:px-0 w-full  flex items-center md:flex-row flex-col justify-between gap-x-2 text-black',
 						'menu_class'      => 'md:space-x-5 w-full flex flex-col md:flex-row',
 						'theme_location'  => 'primary',
-						'li_class'        => 'text-base w-full py-2.5 px-2 text-xl',
+						'li_class'        => 'text-base w-full py-2.5 px-2 text-xl hover:underline underline-offset-4 hover:text-gray-800 font-droid',
 						'fallback_cb'     => false,
 					)
 				);

@@ -212,10 +212,31 @@ article > *:not(.entry-content),
 }
 
 
-.gform_button {  
+.bugs {
+
+  .gform_button {  
      @apply inline-block sm:w-auto sm:min-w-[180px] whitespace-nowrap justify-center gap-x-1 text-white px-10 py-3 bg-green hover:bg-darkGreen duration-200 border-none rounded font-bold tracking-wide text-xl mb-4 shadow-md hover:shadow w-full cursor-pointer;
 }
+  footer {
+    bg-gradient-to-b from-red to-darkRed
+  }
 
+}
+
+.signatureav {
+
+  .gform_button {  
+    @apply inline-block sm:w-auto sm:min-w-[180px] whitespace-nowrap justify-center gap-x-1 text-white px-10 py-3 bg-black hover:bg-gray-500 duration-200 border-none rounded font-bold tracking-wide text-xl mb-4 shadow-md hover:shadow w-full cursor-pointer;
+  }
+  .ginput_container {
+    input {
+      @apply rounded;
+    }
+  }
+  footer {
+    @apply bg-black;
+  }
+}
 .ginput_container {
     @apply rounded;
 }
@@ -223,3 +244,4 @@ article > *:not(.entry-content),
 .custom-logo-link img {
   max-width:250px;
 }
+
